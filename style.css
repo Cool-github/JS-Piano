@@ -1,0 +1,131 @@
+html{
+    text-align: center;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: 'Noto Serif', serif;
+    background: #0000008e;
+    -webkit-font-smoothing: antialiased;  /* webkit has no effect in firefox */
+    /* Makes text look thinner, crisper, and smoother,reduce the jagged edges */
+    /* color: #fff; */
+}
+
+/* :root {
+  --fs-heading: clamp(1.5rem, 5vw, 3rem);
+  --fs-body: clamp(1rem, 2vw, 1.5rem);
+} */
+
+video#bgvid{
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    /* we direclty not setting top and left to 0 coz vedio ascept gets disturbed*/
+    left: 50%;
+    top: 50%;
+    z-index: -100;
+    /* transform: translateX(-50%) translateY(-50%); */
+    transform: translate(-50%,-50%);
+    block-size: cover;
+
+}
+
+header{
+    position: relative;
+    margin: 5% 0;
+    /* margin: 30px 0; */
+}
+
+h1{
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    /* text-transform: uppercase; */
+    margin: 0;
+}
+
+h2{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    margin: 2% 0 5%;
+}
+.current-playing{
+    color:#eee;
+    font-size: 120px;
+    min-height: 120px;
+    line-height: 1;
+    text-shadow: 0 0 5rem #028ae9;
+    transition: all 0.07s ease;
+}
+.keys{
+    display: block;
+    width: 100%;
+    height: 50vh;
+    max-width: 880px;
+    position: relative;
+    margin: 40px auto 0;
+    cursor: pointer;
+}
+
+.key{
+    display: block;
+    position: relative;
+    border: 4px solid black;
+    border-radius: 0.5rem;
+    transition: all 0.07s ease;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* white keys */
+.key:not(.sharp){
+    float: left;
+    width: 10%;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
+}
+
+/* black keys */
+.key.sharp{
+    position: absolute;
+    width: 6%;
+    height: 60%;
+    background: #000;
+    color: #eee;
+    top: 0;
+    z-index: 3;
+
+}
+/* positioning black keys */
+.key[data-key="87"] { left: 7%; }   /* C# (W) over A */
+.key[data-key="69"] { left: 17%; }  /* D# (E) over S */
+.key[data-key="84"] { left: 37%; }  /* F# (T) over F */
+.key[data-key="89"] { left: 47%; }  /* G# (Y) over G */
+.key[data-key="85"] { left: 57%; }  /* A# (U) over H */
+.key[data-key="79"] { left: 77%; }  /* C# (O) over K */
+.key[data-key="80"] { left: 87%; }  /* D# (P) over L */
+/* Position each black key directly over the gap between two white keys
+left: % works because .key.sharp is absolutely positioned inside .keys */
+
+.playing{
+    /* Scales the key down slightly to show it's pressed */
+    transform: scale(0.95);
+    background-color: #028ae9;
+    box-shadow: 0 0 1rem #028ae9;
+}
+
+.hints{
+    display: block;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    bottom: 7px;
+    transition: opacity 0.3s ease-out;
+    font-size: 1.5rem;
+}
+
+.keys:hover .hints{
+    opacity: 1;
+}   
