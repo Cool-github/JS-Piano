@@ -49,12 +49,12 @@ h2{
     font-size: 1.5rem;
     font-weight: 400;
     font-style: italic;
-    margin: 2% 0 5%;
+    margin: 2% 0 2%;
 }
-.current-playing{
+.currently-playing{
     color:#eee;
-    font-size: 120px;
-    min-height: 120px;
+    font-size: 9rem;
+    min-height: 5rem;
     line-height: 1;
     text-shadow: 0 0 5rem #028ae9;
     transition: all 0.07s ease;
