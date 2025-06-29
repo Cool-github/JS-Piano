@@ -6,6 +6,7 @@ Welcome to **JS Piano**, a fun and interactive virtual piano built with
 🎶 Play real-time notes using your keyboard and enjoy an engaging musical experience right in your browser!
 
 ---
+![WhatsApp Image 2025-06-29 at 18 34 34_7936f54c](https://github.com/user-attachments/assets/285b2691-98f1-40cb-a4c8-4c1683083085)
 
 ## 🚀 Features
 
