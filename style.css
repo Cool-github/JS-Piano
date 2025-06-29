@@ -2,7 +2,9 @@ html{
     text-align: center;
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: 'Noto Serif', serif;
-    background: #0000008e;
+
+    background: linear-gradient(to bottom, #1a1a40, #0f172a);
+    height: 100vh;
     -webkit-font-smoothing: antialiased;  /* webkit has no effect in firefox */
     /* Makes text look thinner, crisper, and smoother,reduce the jagged edges */
     /* color: #fff; */
@@ -13,43 +15,51 @@ html{
   --fs-body: clamp(1rem, 2vw, 1.5rem);
 } */
 
-video#bgvid{
-    position: fixed;
-    min-height: 100%;
-    min-width: 100%;
-    width: auto;
-    height: auto;
-    /* we direclty not setting top and left to 0 coz vedio ascept gets disturbed*/
-    left: 50%;
-    top: 50%;
-    z-index: -100;
-    /* transform: translateX(-50%) translateY(-50%); */
-    transform: translate(-50%,-50%);
-    block-size: cover;
-
-}
-
 header{
     position: relative;
-    margin: 5% 0;
+    /* margin: 5% 0; */
     /* margin: 30px 0; */
 }
 
-h1{
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 400;
-    letter-spacing: 0.2rem;
-    /* text-transform: uppercase; */
-    margin: 0;
+h1 {
+  color: #fff;
+  font-size: 0; /* removes inline-block spacing */
+  font-weight: 400;
+  margin: 0;
+  animation: fadeIn 2s ease;
+  text-align: center;
 }
 
+.title-main {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  color: #f5f5f5;
+  letter-spacing: 0.3rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.title-sub {
+  font-family: 'Bangers', cursive;
+  font-size: 2.2rem;
+  /* color: #ff5252; */
+  letter-spacing: 0.1rem;
+  margin-left: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 h2{
     color: #fff;
     font-size: 1.5rem;
     font-weight: 400;
     font-style: italic;
-    margin: 2% 0 2%;
+    /* margin: 2% 0 2%; */
 }
 .currently-playing{
     color:#eee;
@@ -67,7 +77,9 @@ h2{
     position: relative;
     margin: 40px auto 0;
     cursor: pointer;
+    
 }
+
 
 .key{
     display: block;
@@ -98,6 +110,7 @@ h2{
     z-index: 3;
 
 }
+
 /* positioning black keys */
 .key[data-key="87"] { left: 7%; }   /* C# (W) over A */
 .key[data-key="69"] { left: 17%; }  /* D# (E) over S */
@@ -129,3 +142,23 @@ left: % works because .key.sharp is absolutely positioned inside .keys */
 .keys:hover .hints{
     opacity: 1;
 }   
+
+/* ---------------------- */
+.burst {
+  position: fixed;
+  font-size: 24px;
+  animation: flyUp 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes flyUp {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2) translateY(-100px) rotate(20deg);
+  }
+}
